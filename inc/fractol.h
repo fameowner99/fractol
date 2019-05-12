@@ -41,4 +41,6 @@ typedef struct		s_union
 
 t_img		*ft_create_new_image(t_union un);
 
+void		fractol();
+
 #endif

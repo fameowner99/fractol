@@ -1,15 +1,19 @@
-#include "mlx.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vmiachko <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/12 19:02:28 by vmiachko          #+#    #+#             */
+/*   Updated: 2019/05/12 19:02:47 by vmiachko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
-int main()
+int			main(void)
 {
-	t_union	un;
-
-	un.mlx.init_ptr = mlx_init();
-		un.mlx.window_ptr = mlx_new_window(un.mlx.init_ptr,
-				500, 500, "fractol");
-		un.img = ft_create_new_image(un);
-
-		mlx_loop(un.mlx.init_ptr);
+	fractol();
 	return (0);
 }
