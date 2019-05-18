@@ -18,13 +18,13 @@ void		ft_putpixel(t_img *img, int x, int y, int color)
 		*(int *)(img->image_ptr + ((x + y * SIZE_X) * img->bpp)) = color;
 }
 
-t_img		*ft_create_new_image(t_union un)
+t_img		*ft_create_new_image(t_union *un)
 {
 	t_img	*img;
 
 	if (!(img = (t_img *)malloc(sizeof(t_img))))
 		return (NULL);
-	img->new_image = mlx_new_image(un.mlx.init_ptr, SIZE_X, SIZE_Y);
+	img->new_image = mlx_new_image(un->mlx.init_ptr, SIZE_X, SIZE_Y);
 	img->image_ptr = mlx_get_data_addr(img->new_image,
 			&img->bpp, &img->size_line, &img->endian);
 	img->bpp /= 8;

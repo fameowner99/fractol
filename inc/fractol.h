@@ -39,8 +39,11 @@ typedef struct		s_union
 	t_point			*point;
 }					t_union;
 
-t_img		*ft_create_new_image(t_union un);
-
+t_img		*ft_create_new_image(t_union *un);
+void		ft_putpixel(t_img *img, int x, int y, int color);
 void		fractol();
+void		setup_controls(t_union *un);
+void		draw(t_union *un);
+void		mandelbrot(int x, int y, t_union *un);
 
 #endif

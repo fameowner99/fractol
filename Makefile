@@ -8,7 +8,7 @@ RM = rm -f
 
 HEADERPATH = -I ./inc -I $(LIB_DIR) -I $(MLX_DIR)
 
-SRC = src/main.c src/ft_image.c src/fractol.c
+SRC = src/main.c src/ft_image.c src/fractol.c src/controls.c src/draw.c src/mandelbrot.c
 
 LIB_DIR = libft/
 
@@ -39,7 +39,7 @@ clean:
 
 fclean: clean
 	@make fclean -C $(LIB_DIR)
-	@make clean -C $(MLX_DIR)
+	@make fclean -C $(MLX_DIR)
 	$(RM) $(NAME)
 
 re: fclean all
