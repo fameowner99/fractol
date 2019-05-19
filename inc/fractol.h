@@ -7,38 +7,59 @@
 #include "libft.h"
 #include <unistd.h>
 
-# define SIZE_X 1500
-# define SIZE_Y 1500
+# define SIZE_X 1000
+# define SIZE_Y 1000
+# define FALSE 0
+# define TRUE 1
 
-typedef struct		s_img
+typedef struct			s_img
 {
-	void			*new_image;
-	void			*image_ptr;
-	int				bpp;
-	int				size_line;
-	int				endian;
-}					t_img;
+	void				*new_image;
+	void				*image_ptr;
+	int					bpp;
+	int					size_line;
+	int					endian;
+}						t_img;
 
-typedef struct		s_mlx
+typedef struct			s_mlx
 {
-	void			*init_ptr;
-	void			*window_ptr;
-}					t_mlx;
+	void				*init_ptr;
+	void				*window_ptr;
+}						t_mlx;
 
-typedef struct		s_point
+typedef struct			s_point
 {
-	double			x;
-	double			y;
-}					t_point;
+	float				x;
+	float				y;
+}						t_point;
 
-
-typedef struct		s_union
+typedef struct 			s_move
 {
-	t_img			*img;
-	t_mlx			mlx;
-	t_point			*point;
-}					t_union;
+	int 				x;
+	int 				y;
+	int 				pressed_x;
+	int 				pressed_y;
+}						t_move;
 
+typedef struct 			s_mouse_movement
+{
+	int 				left_button;
+	int 				right_button;
+
+}						t_mouse_movement;
+
+typedef struct			s_union
+{
+	t_img				*img;
+	t_mlx				mlx;
+	t_point				point;
+	t_move 				move;
+	t_mouse_movement 	mouse;
+	float				zoom;
+	int 				iterations;
+}						t_union;
+
+void		redraw(t_union *un);
 t_img		*ft_create_new_image(t_union *un);
 void		ft_putpixel(t_img *img, int x, int y, int color);
 void		fractol();

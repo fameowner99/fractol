@@ -35,3 +35,9 @@ void		ft_clear_image(t_img *img)
 {
 	ft_bzero(img->image_ptr, (size_t)SIZE_X * SIZE_Y * img->bpp);
 }
+
+void		redraw(t_union *un)
+{
+	ft_clear_image(un->img);
+	draw(un);
+}
