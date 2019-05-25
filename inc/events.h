@@ -6,3 +6,4 @@
 #define ZOOM_IN 4
 #define MOUSE_LEFT_BUT 1
 #define MOUSE_RIGHT_BUT 2
+#define MOUSEMOVENTREDRAW 46

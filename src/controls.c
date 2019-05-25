@@ -26,6 +26,8 @@ int			deal_key(int key, t_union *un)
 		un->iterations -= 5;
 		redraw(un);
 	}
+	else if (key == MOUSEMOVENTREDRAW)
+		un->redrawMouseMovement ^= TRUE;
 	
 	return (0);
 } //TO DO: move to another file 
@@ -34,12 +36,16 @@ int mouse_press(int key, int x, int y, t_union *un)
 {
 	if (key == ZOOM_OUT)
 	{
-		un->zoom *= 2;
+		un->zoom *= 1.2;
+		un->move.x -= (un->move.x - x) * 0.2;
+		un->move.y -= (un->move.y - y) * 0.2;
 		redraw(un);
 	}
 	if (key == ZOOM_IN)
 	{
-		un->zoom /= 2;
+		un->zoom /= 1.2;
+		un->move.x += (un->move.x - x) * 0.2;
+		un->move.y += (un->move.y - y) * 0.2;
 		redraw(un);
 	}
 	if (key == MOUSE_LEFT_BUT)
@@ -63,6 +69,10 @@ int mouse_release(int key, int x, int y, t_union *un)
 
 int mouse_move(int x, int y, t_union *un)
 {
+	un->mouse.x = x;
+	un->mouse.y = y;
+	if (un->redrawMouseMovement == TRUE)
+		redraw(un);
 	if (un->mouse.left_button == TRUE)
 	{
 		un->move.x += x - un->move.pressed_x;

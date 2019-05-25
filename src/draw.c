@@ -12,7 +12,7 @@ void draw(t_union *un)
 		x = 0;
 		while(x < SIZE_X)
 		{
-			mandelbrot(x, y, un);
+			un->fractal(x, y, un);
 			++x;
 		}
 		++y;

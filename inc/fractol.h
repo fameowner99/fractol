@@ -12,6 +12,13 @@
 # define FALSE 0
 # define TRUE 1
 
+typedef enum 			s_fractal
+{
+	MANDELBROT = 0,
+	JULIA,
+	WRONGFRACTAL
+}						t_fractal;
+
 typedef struct			s_img
 {
 	void				*new_image;
@@ -43,6 +50,8 @@ typedef struct 			s_move
 
 typedef struct 			s_mouse_movement
 {
+	int 				x;
+	int 				y;
 	int 				left_button;
 	int 				right_button;
 
@@ -57,14 +66,17 @@ typedef struct			s_union
 	t_mouse_movement 	mouse;
 	float				zoom;
 	int 				iterations;
+	int 				redrawMouseMovement;
+	void				(*fractal)(int x, int y, struct s_union *un);
 }						t_union;
 
 void		redraw(t_union *un);
 t_img		*ft_create_new_image(t_union *un);
 void		ft_putpixel(t_img *img, int x, int y, int color);
-void		fractol();
+void		fractol(t_union *un);
 void		setup_controls(t_union *un);
 void		draw(t_union *un);
 void		mandelbrot(int x, int y, t_union *un);
+void		julia(int x, int y, t_union *un);
 
 #endif
