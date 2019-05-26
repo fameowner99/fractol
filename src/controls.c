@@ -8,6 +8,23 @@ int		window_close()
 	return (0);
 }
 
+void		change_color(int key, t_union *un)
+{
+	t_color old_color;
+
+	old_color = un->color;
+	if (key == BUT_1)
+		un->color = JUNKY;
+	else if (key == BUT_2)
+		un->color = BLACKWHITE;
+	else if (key == BUT_3)
+		un->color = COLOR;
+
+	if (old_color != un->color)
+		redraw(un);
+
+}
+
 int			deal_key(int key, t_union *un)
 {
 	if (key == ESC)
@@ -28,7 +45,7 @@ int			deal_key(int key, t_union *un)
 	}
 	else if (key == MOUSEMOVENTREDRAW)
 		un->redrawMouseMovement ^= TRUE;
-	
+	change_color(key, un);
 	return (0);
 } //TO DO: move to another file 
 

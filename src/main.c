@@ -14,10 +14,11 @@
 
 static void			help(void)
 {
-	ft_printf("Usage: ./fractol [arg_name]\n \
+	ft_printf(RED"Usage: ./fractol [arg_name]\n \
 arg_name:\n \
-	julia 			Opens julia fractal\n \
-	mandelbrot 		Opens mandelbrot fractal\n");
+	julia 				Opens julia fractal\n \
+	mandelbrot 			Opens mandelbrot fractal\n \
+	burningship			Opens burningship fractal\n"RESET);
 }
 
 static t_fractal  	getFractal(char **argv)
@@ -26,6 +27,8 @@ static t_fractal  	getFractal(char **argv)
 		return (JULIA);
 	else if (!ft_strcmp(argv[1], "mandelbrot"))
 		return (MANDELBROT);
+	else if (!ft_strcmp(argv[1], "burningship"))
+		return (BURNINGSHIP);
 	
 	return (WRONGFRACTAL);
 }
@@ -40,6 +43,8 @@ static int			setFractal(t_union *un, char **argv)
 		un->fractal = &julia;
 	else if (fractal == MANDELBROT)
 		un->fractal = &mandelbrot;
+	else if (fractal == BURNINGSHIP)
+		un->fractal = &burningship;
 	return (TRUE);
 }
 

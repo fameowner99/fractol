@@ -22,8 +22,5 @@ void		julia(int x, int y, t_union *un)
 
 		++i;
 	}
-	if (i < un->iterations)
-		ft_putpixel(un->img, x, y, 0xCC0000 * i / (un->iterations - 1)) ;
-	else
-		ft_putpixel(un->img, x, y, 0x000000);
+	set_pixel_color(x, y, i, un, zr * zr + zi * zi);
 }

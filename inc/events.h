@@ -7,3 +7,6 @@
 #define MOUSE_LEFT_BUT 1
 #define MOUSE_RIGHT_BUT 2
 #define MOUSEMOVENTREDRAW 46
+#define BUT_1 18
+#define BUT_2 19
+#define BUT_3 20

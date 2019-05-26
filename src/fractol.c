@@ -7,6 +7,7 @@ void	fractol(t_union *un)
 	un->img = ft_create_new_image(un);
 	un->iterations = 10;
 	un->zoom = 10;
+	un->color = JUNKY;
 	un->mouse.left_button = FALSE;
 	un->mouse.right_button = FALSE;
 	un->move.x = SIZE_X / 2;

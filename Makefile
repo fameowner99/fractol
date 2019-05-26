@@ -8,13 +8,14 @@ RM = rm -f
 
 HEADERPATH = -I ./inc -I $(LIB_DIR) -I $(MLX_DIR)
 
-SRC = src/main.c src/ft_image.c src/fractol.c src/controls.c src/draw.c src/mandelbrot.c src/julia.c
+SRC = src/main.c src/ft_image.c src/fractol.c src/controls.c src/draw.c \
+	src/fractals/mandelbrot.c src/fractals/julia.c src/fractals/burningShip.c
 
 LIB_DIR = libft/
 
 LIB_FLAGS = -L $(LIB_DIR) -lft
 
-MLX_FLAGS = -L $(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
+MLX_FLAGS = -L $(MLX_DIR) -lmlx -framework OpenGL -framework AppKit -framework OpenCL
 
 MLX_DIR = minilibx_macos/
 

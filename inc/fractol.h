@@ -6,16 +6,27 @@
 #include "mlx.h"
 #include "libft.h"
 #include <unistd.h>
+#include <math.h>
+#include <stdlib.h>
+#include <OpenCL/opencl.h>
 
 # define SIZE_X 1000
 # define SIZE_Y 1000
 # define FALSE 0
 # define TRUE 1
 
+typedef enum 			s_color
+{
+	JUNKY = 0,
+	BLACKWHITE,
+	COLOR
+}						t_color;
+
 typedef enum 			s_fractal
 {
 	MANDELBROT = 0,
 	JULIA,
+	BURNINGSHIP,
 	WRONGFRACTAL
 }						t_fractal;
 
@@ -66,6 +77,7 @@ typedef struct			s_union
 	t_mouse_movement 	mouse;
 	float				zoom;
 	int 				iterations;
+	t_color 			color;
 	int 				redrawMouseMovement;
 	void				(*fractal)(int x, int y, struct s_union *un);
 }						t_union;
@@ -75,8 +87,10 @@ t_img		*ft_create_new_image(t_union *un);
 void		ft_putpixel(t_img *img, int x, int y, int color);
 void		fractol(t_union *un);
 void		setup_controls(t_union *un);
+void 		set_pixel_color(int x, int y, int curr_iteration, t_union *un, float length);
 void		draw(t_union *un);
 void		mandelbrot(int x, int y, t_union *un);
 void		julia(int x, int y, t_union *un);
+void 		burningship(int x, int y, t_union *un);
 
 #endif
