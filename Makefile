@@ -9,7 +9,8 @@ RM = rm -f
 HEADERPATH = -I ./inc -I $(LIB_DIR) -I $(MLX_DIR)
 
 SRC = src/main.c src/ft_image.c src/fractol.c src/controls.c src/draw.c \
-	src/fractals/mandelbrot.c src/fractals/julia.c src/fractals/burningShip.c
+	src/fractals/mandelbrot.c src/fractals/julia.c src/fractals/burningShip.c \
+	src/cl_wrapper.c src/build_cl.c
 
 LIB_DIR = libft/
 

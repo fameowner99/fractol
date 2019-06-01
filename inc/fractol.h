@@ -68,6 +68,20 @@ typedef struct 			s_mouse_movement
 
 }						t_mouse_movement;
 
+typedef struct			s_opencl
+{
+	cl_platform_id		platform_id;
+	cl_uint				ret_num_platforms;
+	cl_device_id		device_id;
+	cl_uint				num_devices;
+	cl_context			context;
+	cl_command_queue	command_queue;
+	cl_program			program;
+	cl_kernel			kernel;
+	cl_int				ret;
+
+}						t_opencl;
+
 typedef struct			s_union
 {
 	t_img				*img;
@@ -81,6 +95,17 @@ typedef struct			s_union
 	int 				redrawMouseMovement;
 	void				(*fractal)(int x, int y, struct s_union *un);
 }						t_union;
+
+//start opencl
+void				initialize_opencl(t_opencl *cl);
+
+void				getPlatrofrmsId(t_opencl *cl);
+void				getDeviceId(t_opencl *cl);
+void				createContex(t_opencl *cl);
+void				createCommandQueue(t_opencl *cl);
+
+void    			build_cl(t_opencl *cl);
+//end opencl
 
 void		redraw(t_union *un);
 t_img		*ft_create_new_image(t_union *un);

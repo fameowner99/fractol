@@ -23,7 +23,7 @@ SRC = ft_atoi.c ft_lstiter.c ft_putchar_fd.c ft_strdel.c ft_strncpy.c \
 	ft_printf/parsing2.c ft_printf/hash.c ft_printf/parsing_tools.c \
 	ft_printf/parsing.c ft_printf/parsing_tools1.c \
 	ft_printf.c ft_alloc_2d.c ft_free_2d.c ft_alloc_2d_int.c \
-	ft_free_2d_int.c 
+	ft_free_2d_int.c ft_append.c 
 
 OBJ = $(SRC:.c=.o)
 

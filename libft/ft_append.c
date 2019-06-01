@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_append.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vmiachko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/23 14:18:15 by vmiachko          #+#    #+#             */
-/*   Updated: 2019/01/29 17:58:42 by vmiachko         ###   ########.fr       */
+/*   Created: 2019/06/01 18:35:49 by vmiachko          #+#    #+#             */
+/*   Updated: 2019/06/01 18:40:19 by vmiachko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
+#include "libft.h"
 
-# define GET_NEXT_LINE_H
-
-# define BUFF_SIZE 1
-
-# include "libft.h"
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-
-int				get_next_line(const int fd, char **line);
-
-typedef struct	s_counters
+char		*ft_append(char *curr_str, char *to_append)
 {
-	ssize_t		b;
-	size_t		i;
-}				t_counters;
+	int		i;
+	int		j;
+	int		k;
+	char	*new_str;
 
-#endif
+	i = ft_strlen(curr_str);
+	k = ft_strlen(to_append);
+	j = 0;
+	new_str = ft_realloc(curr_str, ft_strlen(curr_str) + ft_strlen(to_append));
+	while (j < k)
+		new_str[i++] = to_append[j++];
+	return (new_str);
+}

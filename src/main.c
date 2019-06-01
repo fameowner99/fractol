@@ -51,10 +51,14 @@ static int			setFractal(t_union *un, char **argv)
 int					main(int argc, char **argv)
 {
 	t_union	un;
+	t_opencl cl;
 
 	if (argc != 2 || !setFractal(&un, argv))
 		help();
 	else
+	{
+		initialize_opencl(&cl);
 		fractol(&un);
+	}
 	return (0);
 }

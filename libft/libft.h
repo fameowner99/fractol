@@ -6,7 +6,7 @@
 /*   By: vmiachko <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/01 15:08:47 by vmiachko          #+#    #+#             */
-/*   Updated: 2018/05/14 19:48:33 by vmiachko         ###   ########.fr       */
+/*   Updated: 2019/06/01 18:35:36 by vmiachko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,5 @@ void				**ft_alloc_2d(size_t wrd, size_t str);
 int					**ft_alloc_2d_int(size_t wrd, size_t str);
 void				ft_free_2d(void **arr);
 void				ft_free_2d_int(void **arr, size_t n);
+char				*ft_append(char *curr_str, char *to_append_str);
 #endif
