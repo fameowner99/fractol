@@ -28,5 +28,4 @@ void    build_cl(t_opencl *cl)
         (const size_t *)&source_size, &cl->ret);
     fd = clBuildProgram(cl->program, 1, &cl->device_id, NULL, NULL, NULL);
     cl->kernel = clCreateKernel(cl->program, "test", &cl->ret);
-    
 }
